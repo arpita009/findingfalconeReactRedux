@@ -32,3 +32,4 @@ Open http://localhost:3000 to view in the browser.
 4. falconeTracker page containing a form to choose destination planets and vehicles in order to track the falcone.
 5. Tracking time taken by the vehicles
 6. Based on the api response, display the success or fail page
+7. Implementation of Redux for state management
