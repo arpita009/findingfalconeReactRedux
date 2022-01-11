@@ -47,6 +47,7 @@ const SearchItem =(props) =>{
                 onChange={(e,value)=>handleCombo(e,value)}
                 options={planetsPass}
                 getOptionLabel={(option)=>option.name}
+                // isOptionEqualToValue={}
                 sx={{ width: 300}}
                 renderInput={(params) => <TextField {...params} label="Select" />}
             />

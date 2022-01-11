@@ -64,7 +64,7 @@ export const startFindFalcone = (planetsOpted,vehiclesOpted,routeURL) =>{
                     // console.log('messageResp',messageResp)
                     const trackingMsg= messageResp.data
                     dispatch(startFalconeTracking(trackingMsg))
-                    if(!trackingMsg.status){
+                    if(trackingMsg.status==='false'){
                         routeURL('fail')
                     }else if(trackingMsg.status==='success'){
                         routeURL(`success/${trackingMsg.planet_name}`)

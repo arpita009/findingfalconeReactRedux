@@ -9,6 +9,7 @@ import {startResetVehicleSelected} from './actions/vehicleActions'
 import {startResetPlanetSelected} from './actions/planetActions'
 import {startResetTimer} from './actions/timeActions'
 
+
 const FindColorButton = styled(Button)(() => ({
     color: "#d3d8df",
     backgroundColor: "#4857b8",
@@ -30,7 +31,6 @@ const FalconeContainer=(props) =>{
     const [planetsOpted,setPlanetsOpted] =useState([])
     const [vehiclesOpted,setvehiclesOpted] =useState([])
     const [trackingMsg, setTrackingMsg] = useState({})
-    // const [isReceived, setIsReceived] = useState(false)
 
     const dispatch= useDispatch()
     const noOfDest=4
@@ -52,15 +52,12 @@ const FalconeContainer=(props) =>{
         }
     },[])
     useEffect(() =>{
-        // if(planetsSelected.length && vehiclesSelected.length){
-
-            setPlanetsOpted(planetsSelected)
-            setvehiclesOpted(vehiclesSelected)
+        setPlanetsOpted(planetsSelected)
+        setvehiclesOpted(vehiclesSelected)
 
     },[planetsSelected,vehiclesSelected])
     useEffect(() =>{
         if( Object.keys(trackingInfo).length){
-            // console.log('useEff isReceived',isReceived)
             console.log('useEff trackingInfo',trackingInfo)
             // setTrackingMsg(trackingInfo)
         }
@@ -70,26 +67,17 @@ const FalconeContainer=(props) =>{
         setPlanetsPass(planetlist)
     }
     const routeURL=(trackingURL) =>{
+        console.log('trackingURL',trackingURL)
         history.push(`/${trackingURL}`)
-        // setIsReceived(true)
     }
-    // const resetForm=() =>{
-    //     dispatch(startResetPlanetSelected())
-    //     dispatch(startResetVehicleSelected())
-    //     dispatch(startResetTimer())
-    // }
+
     const handleSubmit =(e) =>{
         e.preventDefault()
         console.log('handleSubmit')
         dispatch(startFindFalcone(planetsOpted,vehiclesOpted,routeURL))
-        // setIsReceived(true)
     }
     const handleReset=()=>{
-        console.log('handleReset1')
-        dispatch(startResetPlanetSelected())
-        dispatch(startResetVehicleSelected())
-        dispatch(startResetTimer())
-        console.log('handleReset2')
+        window.location.reload()
     }
     return(
         <Box component="form" onSubmit={handleSubmit}> 
